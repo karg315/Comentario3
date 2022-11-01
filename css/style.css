@@ -1,0 +1,63 @@
+body{
+    background-image: linear-gradient(to right, rgba(173,238,255,0.5) , rgba(0,125,255,0.5));
+    min-height: 100vh;
+}
+
+header{
+    background-color: rgb(0, 24, 79);
+    padding: 3em;
+}
+
+.container{
+    /*background-color: aliceblue;*/
+    border: solid 2px;
+    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    box-shadow: 5px 10px 15px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 2em 2em;
+    margin: auto;
+}
+
+div{
+    font-size: large;
+}
+
+h1, h2, h3, h4, h5{
+    text-align: center;
+}
+
+h1 span{
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px rgb(52, 52, 70);
+    font-family: Handlee, cursive;
+    font-size: 130%;
+}
+
+h3 span{  
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px rgb(52, 52, 70);
+}
+
+.contenedor-grafica{
+    max-width: 40vw;
+    margin: auto;
+}
+
+.contenedor-tab{
+    border: solid 2px;
+    border-color: rgba(51, 255, 241, 0.5);
+    background-color: rgba(255, 255, 255, 0.56);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 2em 2em;
+    margin: auto;
+}
+
+p{
+    font-size: 120%;
+}

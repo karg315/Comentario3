@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="images/yatagarasu.ico">
+    <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
+    <title>Comentario, ChartJS y KoboToolbox</title>
+</head>
+
+<body>
+    <header>
+        <h1><span>Proyecto Final</span></h1>
+        <h3><span>Kevin Rodriguez</span></h3>
+    </header>
+
+    <br><br><br>
+
+    <div class="container">
+        <h2></h2>
+        <div class="subcontenedor container-lg">
+
+            <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pill-reloj-tab" data-bs-toggle="pill"
+                        data-bs-target="#pill-reloj" type="button" role="tab" aria-controls="pill-reloj"
+                        aria-selected="true">Reloj y datos básicos de los encuestados</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pill-encuesta-tab" data-bs-toggle="pill"
+                        data-bs-target="#pill-encuesta" type="button" role="tab" aria-controls="pill-encuesta"
+                        aria-selected="false">Percepción de los encuestados</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pill-comentario-tab" data-bs-toggle="pill"
+                        data-bs-target="#pill-comentario" type="button" role="tab" aria-controls="pill-comentario"
+                        aria-selected="false">Comentario propio</button>
+                </li>
+
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pill-reloj" role="tabpanel" aria-labelledby="pill-reloj-tab"
+                    tabindex="0">
+                    <div class="contenedor-tab">
+
+                        <h3>El Reloj del Fin del Mundo</h3>
+                        <br>
+                        <p>El Reloj del Fin del Mundo, fue creado por el Boletín de Científicos Atómicos, y representa
+                            un diseño que advierte al público lo cerca que estamos de destruir nuestro mundo con
+                            tecnologías peligrosas de nuestra propia creación. Es una metáfora, un recordatorio de los
+                            peligros que debemos abordar si queremos sobrevivir en el planeta.
+                            De acuerdo al Boletín de Cientificos Atómicos, esta ha sido la evolución que ha presentando
+                            el tiempo
+                            restante para el Apocalipsis, respecto a cada año desde su creación hasta el día de hoy.
+                            Y como se difundió en el 2020, estamos lo más cerca de las 12 de la noche en toda la
+                            historia, cosa que no pasaba desde la crisis de los misiles en Cuba:
+                        </p>
+                        <div class="contenedor-grafica">
+                            <p class="lead">
+                                <canvas id="evolucion" width="400" height="400"></canvas>
+                            </p>
+                        </div>
+
+                        <br><br>
+
+                        <h3>Datos básicos de los encuestados:</h3>
+
+                        <p>De acuerdo con los encuestados,la siguiente gráfica muestra cuantas personas conocen acerca
+                            de la existencia de este Reloj del Fin del Mundo:</p>
+                        <div class="contenedor-grafica">
+                            <p class="lead">
+                                <canvas id="reloj" width="400" height="400"></canvas>
+                            </p>
+                        </div>
+
+                        <br><br>
+
+                        <p>La profesión que se dedica o que está estudiando cada persona que contestó la encuesta se ve
+                            reflejada en la gráfica de abajo:</p>
+                        <div class="contenedor-grafica">
+                            <p class="lead">
+                                <canvas id="profesion" width="400" height="400"></canvas>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="pill-encuesta" role="tabpanel" aria-labelledby="pill-encuesta-tab"
+                    tabindex="0">
+
+                    <div class="contenedor-tab">
+
+                        <h3>Percepción de los encuestados sobre las siguientes preguntas:</h3>
+                        <br>
+
+                        <!-- Tab e items de las preguntas -->
+                        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="primera" data-bs-toggle="tab"
+                                    data-bs-target="#primera-pane" type="button" role="tab" aria-controls="primera-pane"
+                                    aria-selected="true">Primera
+                                    pregunta</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="segunda" data-bs-toggle="tab"
+                                    data-bs-target="#segunda-pane" type="button" role="tab" aria-controls="segunda-pane"
+                                    aria-selected="false">Segunda
+                                    Pregunta</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="tercera" data-bs-toggle="tab"
+                                    data-bs-target="#tercera-pane" type="button" role="tab" aria-controls="tercera-pane"
+                                    aria-selected="false">Tercera
+                                    Pregunta</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="cuarta" data-bs-toggle="tab" data-bs-target="#cuarta-pane"
+                                    type="button" role="tab" aria-controls="cuarta-pane" aria-selected="false">Cuarta
+                                    Pregunta</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="primera-pane" role="tabpanel"
+                                aria-labelledby="primera" tabindex="0">
+                                <br>
+                                <h4>¿Cree que desde su profesión puede aportar para evitar que el reloj marque la media
+                                    noche?
+                                </h4>
+                                <h5><small>(5 es mucho) y (1 es poco)</small></h5>
+                                <br>
+                                <div class="contenedor-grafica">
+                                    <p class="lead">
+                                        <canvas id="aportar" width="400" height="400"></canvas>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="segunda-pane" role="tabpanel" aria-labelledby="segunda"
+                                tabindex="0">
+                                <br>
+                                <h4>¿Qué tan importante es la ética en la vida profesional?</h4>
+                                <h5><small>(5 es mucho) y (1 es poco)</small></h5>
+                                <br>
+                                <div class="contenedor-grafica">
+                                    <p class="lead">
+                                        <canvas id="etica" width="400" height="400"></canvas>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tercera-pane" role="tabpanel" aria-labelledby="tercera"
+                                tabindex="0">
+                                <br>
+                                <h4>¿Qué tanta importancia le da a hacer estos avisos simbólicos para demostrar lo cerca
+                                    que
+                                    estamos de nuestra propia extinción?</h4>
+                                <h5><small>(5 es mucho) y (1 es poco)</small></h5>
+                                <br>
+                                <div class="contenedor-grafica">
+                                    <p class="lead">
+                                        <canvas id="avisos" width="400" height="400"></canvas>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="cuarta-pane" role="tabpanel" aria-labelledby="cuarta"
+                                tabindex="0">
+                                <br>
+                                <h4>¿Qué tanta influencia cree que tiene el internet y las telecomunicaciones actuales
+                                    en la
+                                    hora que marca el reloj?</h4>
+                                <h5><small>(5 es mucho) y (1 es poco)</small></h5>
+                                <br>
+                                <div class="contenedor-grafica">
+                                    <p class="lead">
+                                        <canvas id="internet" width="400" height="400"></canvas>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pill-comentario" role="tabpanel" aria-labelledby="pill-comentario-tab"
+                    tabindex="0">
+
+                    <div class="contenedor-tab">
+                        <h3>Comentario propio</h3>
+                        <br>
+                        <p>Desde mi punto de vista, si es necesario que existan estos símbolos y avisos, sobre el
+                            conjunto de peligros que nosotros mismos nos estamos poniendo para vivir en este planeta,
+                            pues como sociedad deberíamos trabajar para permitirnos un mejor estilo de vida para todos.</p>
+
+                        <p>Falta visibilizar aún estos avisos, pues en la encuesta de 40 personas, casi la mitad no
+                            conocían acerca de este reloj, e incluso en esta era digital, que la información se
+                            convierte como en ríos fluyendo por muchos canales, se debe tanto captar la información,
+                            filtrarla y sintetizarla.</p>
+
+                        <p>Desde mi perfil de ingeniería me veo capaz de dar mi esfuerzo para evitar el conteo
+                            progresivo de este reloj, pues, en primer lugar, el tema referente a la información se puede
+                            abordar con soluciones tecnológicas, y principalmente sociales, que ahí va otro punto, el de
+                            la ética. Pues la mayoría de encuestados opinan que, si es importante la ética en la vida
+                            profesional, algo que también estoy de acuerdo, y en el que cada persona puede impactar en
+                            su propio ámbito laboral, y así lograr pequeños cambios.</p>
+
+                        <p>Las soluciones tecnológicas pueden tomar tiempo, pero para eso debe conformarse un buen
+                            equipo que diseñe eficazmente estas soluciones, no todo es a la ligera, por mi perfil, me
+                            veo siendo parte de alguno de estos equipos y apoyando con mis virtudes y complementándome
+                            con el equipo.</p>
+
+                        <p>Incluso, la mayoría de los encuestados votaron, primero, sobre la importancia de estos
+                            avisos, que, si es relevante, y segundo, sobre la influencia de internet y
+                            telecomunicaciones en el conteo de este reloj, por lo cual, desde mi carrera puedo enfocarme
+                            en intentar proveer un entorno digital más seguro para las personas, reducir la cantidad de
+                            peligros presentes y añadir herramientas para ser usadas por las personas. </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <!-- chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"
+        integrity="sha512-Lii3WMtgA0C0qmmkdCpsG0Gjr6M0ajRyQRQSbTF6BsrVh/nhZdHpVZ76iMIPvQwz1eoXC3DmAg9K51qT5/dEVg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- bootstrap 5.2.2 -->
+    <script src="js/js-bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- Info de la grafica de evolución -->
+    <script>
+        const years = [];
+
+        for (i = 1947; i <= 2022; i++) {
+            years[i - 1947] = i;
+        }
+
+        const segundos = [
+            420, 420, 180, 180, 180, 180, 120, 120, 120, 120, 120, 120, 120, 420, 420,
+            420, 720, 720, 720, 720, 720, 420, 600, 600, 600, 720, 720, 540, 540, 540,
+            540, 540, 540, 420, 240, 240, 240, 180, 180, 180, 180, 360, 360, 600, 1020, 1020, 1020,
+            1020, 780, 780, 780, 540, 540, 540, 540, 420, 420, 420, 420, 420, 300, 300,
+            300, 360, 360, 300, 300, 240, 180, 180, 150, 120, 120, 100, 100, 100,
+        ];
+
+        var ctx = document.getElementById("evolucion").getContext("2d");
+
+        var evolucion = new Chart(ctx,
+            {
+                type: "line",
+                data:
+                {
+                    labels: years,
+                    datasets:
+                        [{
+                            barThickness: 100,
+                            label: 'Segundos',
+                            data: segundos,
+                            backgroundColor:
+                                [
+                                    'rgb(0,0,0,0.9)',
+                                    'rgb(0,255,255,0.9)',
+                                    'rgb(255,0,255,0.9)',
+                                    'rgb(255,255,0,0.9)'
+                                ],
+                            borderColor:
+                                [
+                                    'rgb(0,0,0)'
+                                ],
+                            borderWidth: 1,
+                            pointStyle: "circle",
+                            pointRadius: 8,
+                            pointHoverRadius: 8,
+                        }]
+                },
+                options:
+                {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            suggestedMin: 0,
+                            suggestedMax: 1100
+                        }
+                    }
+                }
+            });
+    </script>
+
+    <!-- Info de la gráfica de conocer el reloj -->
+    <script>
+        var ctx = document.getElementById("reloj").getContext("2d");
+
+        var reloj = new Chart(ctx,
+            {
+                type: "polarArea",
+                data: {
+                    labels: [
+                        'Si',
+                        'No'
+                    ],
+                    datasets: [{
+                        label: 'My First Dataset',
+                        data: [22, 18],
+                        backgroundColor: [
+                            'rgb(0, 102, 255)',
+                            'rgb(255, 51, 0)'
+                        ],
+                        hoverOffset: 4
+                    }]
+                }
+            })
+
+    </script>
+
+    <!-- Info de la gráfica de la profesion -->
+    <script>
+        var ctx = document.getElementById("profesion").getContext("2d");
+
+        var profesion = new Chart(ctx,
+            {
+                type: "bar",
+                data: {
+                    labels: ['Ciencia, Tecnología, Ingeniería y Matemáticas',
+                        'Administración y Mercadeo',
+                        'Ley, seguridad pública, correcciones y seguridad',
+                        'Letras, Literatura e Idiomas',
+                        'Artes',
+                        'Educación y Entrenamiento',
+                        'Ciencias de la salud',
+                        'Arquitectura y construcción',
+                        'Audiovisuales y Comunicaciones',
+                        'Transporte, distribución y logística',
+                        'Agricultura, Alimentos y Recursos Naturales',
+                        'Animación',
+                        'Gobierno y administración pública',
+                        'Financiamiento',
+                        'Hospitalidad y Turismo',
+                        'Deportes',
+                        'Fabricación',
+                        'Servicios Humanos'],
+                    datasets: [{
+                        label: 'Profesión',
+                        data: [9, 4, 3, 3, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.3)',
+                            'rgba(255, 115, 110, 0.3)',
+                            'rgba(255, 135, 90, 0.3)',
+                            'rgba(255, 159, 64, 0.3)',
+                            'rgba(255, 170, 75, 0.3)',
+                            'rgba(255, 205, 86, 0.3)',
+                            'rgba(150, 205, 150, 0.3)',
+                            'rgba(110, 198, 175, 0.3)',
+                            'rgba(75, 192, 192, 0.3)',
+                            'rgba(65, 175, 210, 0.3)',
+                            'rgba(54, 162, 235, 0.3)',
+                            'rgba(100, 130, 245, 0.3)',
+                            'rgba(125, 115, 240, 0.3)',
+                            'rgba(153, 102, 255, 0.3)',
+                            'rgba(163, 130, 235, 0.3)',
+                            'rgba(175, 150, 225, 0.3)',
+                            'rgba(180, 170, 215, 0.3)',
+                            'rgba(190, 185, 185, 0.3)'
+                        ],
+                        borderColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(255, 115, 110)',
+                            'rgb(255, 135, 90)',
+                            'rgb(255, 159, 64)',
+                            'rgb(255, 170, 75)',
+                            'rgb(255, 205, 86)',
+                            'rgb(150, 205, 150)',
+                            'rgb(110, 198, 175)',
+                            'rgb(75, 192, 192)',
+                            'rgb(65, 175, 210)',
+                            'rgb(54, 162, 235)',
+                            'rgb(100, 130, 245)',
+                            'rgb(125, 115, 240)',
+                            'rgb(153, 102, 255)',
+                            'rgb(163, 130, 235)',
+                            'rgb(175, 150, 225)',
+                            'rgb(187, 185, 215)',
+                            'rgb(201, 203, 207)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                },
+            }
+        )
+
+    </script>
+
+    <!-- Info de la gráfica de aportar desde la profesión -->
+    <script>
+        var ctx = document.getElementById("aportar").getContext("2d");
+
+        var aportar = new Chart(ctx,
+            {
+                type: "pie",
+                data: {
+                    labels: [
+                        '5',
+                        '4',
+                        '3',
+                        '2',
+                        '1'
+                    ],
+                    datasets: [{
+                        label: 'My First Dataset',
+                        data: [7, 12, 10, 10, 1],
+                        backgroundColor: [
+                            'rgb(255, 51, 0)',
+                            'rgb(0, 102, 255)',
+                            'rgb(255, 204, 0)',
+                            'rgb(51, 204, 51)',
+                            'rgb(204, 51, 255)'
+                        ],
+                        hoverOffset: 4
+                    }]
+                }
+            })
+
+    </script>
+
+    <!-- Info de la gráfica de la ética -->
+    <script>
+        var ctx = document.getElementById("etica").getContext("2d");
+
+        var etica = new Chart(ctx,
+            {
+                type: "doughnut",
+                data: {
+                    labels: [
+                        '5',
+                        '4',
+                        '3',
+                        '2',
+                        '1'
+                    ],
+                    datasets: [{
+                        label: 'My First Dataset',
+                        data: [19, 13, 6, 2, 0],
+                        backgroundColor: [
+                            'rgb(0, 204, 255)',
+                            'rgb(64, 255, 0)',
+                            'rgb(255, 128, 0)',
+                            'rgb(255, 0, 128)',
+                            'rgb(102, 0, 255)'
+                        ],
+                        hoverOffset: 4
+                    }]
+                }
+            })
+
+    </script>
+
+    <!-- Info de la gráfica de los avisos -->
+    <script>
+        var ctx = document.getElementById("avisos").getContext("2d");
+
+        var avisos = new Chart(ctx,
+            {
+                type: "pie",
+                data: {
+                    labels: [
+                        '5',
+                        '4',
+                        '3',
+                        '2',
+                        '1'
+                    ],
+                    datasets: [{
+                        label: 'My First Dataset',
+                        data: [7, 20, 10, 1, 2],
+                        backgroundColor: [
+                            'rgb(0, 204, 0)',
+                            'rgb(0, 102, 204)',
+                            'rgb(82, 0, 204)',
+                            'rgb(204, 0, 102)',
+                            'rgb(204, 102, 0)'
+                        ],
+                        hoverOffset: 4
+                    }]
+                }
+            })
+
+    </script>
+
+    <!-- Info de la gráfica de internet -->
+    <script>
+        var ctx = document.getElementById("internet").getContext("2d");
+
+        var internet = new Chart(ctx,
+            {
+                type: "doughnut",
+                data: {
+                    labels: [
+                        '5',
+                        '4',
+                        '3',
+                        '2',
+                        '1'
+                    ],
+                    datasets: [{
+                        label: 'My First Dataset',
+                        data: [10, 17, 11, 1, 1],
+                        backgroundColor: [
+                            'rgb(0, 0, 102)',
+                            'rgb(230, 26, 240)',
+                            'rgb(220, 220, 26)',
+                            'rgb(102, 51, 0)',
+                            'rgb(26, 245, 209)'
+                        ],
+                        hoverOffset: 4
+                    }]
+                }
+            })
+
+    </script>
+
+</body>
+
+</html>
