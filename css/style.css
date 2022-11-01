@@ -61,3 +61,18 @@ h3 span{
 p{
     font-size: 120%;
 }
+
+::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(to bottom, #004fec, #00d6fb);
+    border-radius: 25px;
+    border: 2px solid blue;
+}
+
+::-webkit-scrollbar-track{
+    background:midnightblue;
+}
